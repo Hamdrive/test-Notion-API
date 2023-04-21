@@ -4,7 +4,7 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export default async function handle(req, res) {
+export default async function handle(req: any, res: any) {
   const { name, details, tags } = req.body;
   try {
     const data = await notion.pages.create({
