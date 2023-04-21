@@ -8,7 +8,7 @@ export default function Form() {
   const [checkbox2, setCheckbox2] = useState(false);
   const [checkbox3, setCheckbox3] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     const tags = [checkbox1, checkbox2, checkbox3]
       .map((model, index) => model === true && { name: `Tag ${index + 1}` })
@@ -21,11 +21,11 @@ export default function Form() {
     }
   };
 
-  const handleNameChange = (event) => {
+  const handleNameChange = (event: any) => {
     setName(event.target.value);
   };
 
-  const handleDetailsChange = (event) => {
+  const handleDetailsChange = (event: any) => {
     setDetails(event.target.value);
   };
 

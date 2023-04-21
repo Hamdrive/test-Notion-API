@@ -1,19 +1,19 @@
-import {Client} from '@notionhq/client'
+import { Client } from "@notionhq/client";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export default async function handle(req, res) {
+export default async function handle(req: any, res: any) {
   const { name, details, tags } = req.body;
   try {
     const data = await notion.pages.create({
       parent: {
-        type: 'database_id',
-        database_id: process.env.NOTION_DATABASE_ID,
+        type: "database_id",
+        database_id: process.env.NOTION_DATABASE_ID!,
       },
       properties: {
-        'Details': {
+        Details: {
           rich_text: [
             {
               text: {
@@ -22,7 +22,7 @@ export default async function handle(req, res) {
             },
           ],
         },
-        'Tags': {
+        Tags: {
           multi_select: tags,
         },
         Name: {
